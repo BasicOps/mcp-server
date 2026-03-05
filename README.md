@@ -11,6 +11,10 @@ Connect any MCP-compatible AI client (Claude, Cursor, Windsurf, etc.) to your Ba
 | Streamable HTTP | `https://app.basicops.com/mcp` |
 | SSE (legacy) | `https://app.basicops.com/mcp/sse` |
 
+## Authentication
+
+The BasicOps MCP server uses **OAuth 2.1** for authentication. When you connect an MCP client to the server, you will be redirected through the OAuth 2.1 authorization flow to grant access to your BasicOps workspace. No manual token management is required.
+
 ## Features
 
 The BasicOps MCP server exposes tools for working with your entire BasicOps workspace:
@@ -26,34 +30,21 @@ The BasicOps MCP server exposes tools for working with your entire BasicOps work
 
 ## Getting Started
 
-### 1. Get your API token
-
-Log in to [BasicOps](https://app.basicops.com) and generate an API token from your account settings.
-
-### 2. Configure your MCP client
+### 1. Configure your MCP client
 
 #### Claude Desktop
 
-Add the following to your `claude_desktop_config.json`:
+In Claude Desktop, add a new MCP connector using the custom connector option. Enter a name (e.g. `BasicOps`) and the Streamable HTTP endpoint:
 
-```json
-{
-  "mcpServers": {
-    "basicops": {
-      "url": "https://app.basicops.com/mcp",
-      "headers": {
-        "Authorization": "Bearer YOUR_API_TOKEN"
-      }
-    }
-  }
-}
 ```
+https://app.basicops.com/mcp
+```
+
+On first use, you will be prompted to sign in to BasicOps via the OAuth 2.1 authorization flow.
 
 #### Other clients
 
-Use the Streamable HTTP endpoint `https://app.basicops.com/mcp` with your API token passed as a Bearer token in the `Authorization` header.
-
-For clients that only support SSE, use `https://app.basicops.com/mcp/sse` instead.
+Use the Streamable HTTP endpoint `https://app.basicops.com/mcp`. For clients that only support SSE, use `https://app.basicops.com/mcp/sse` instead.
 
 ## Resources
 

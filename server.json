@@ -1,13 +1,11 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.Basicops/basicops",
+  "name": "io.github.BasicOps/basicops",
+  "version": "1.0.1",
   "description": "BasicOps MCP server for project management, tasks, notes, and team collaboration.",
   "repository": {
-    "url": "https://github.com/Basicops/mcp-server",
+    "url": "https://github.com/BasicOps/mcp-server",
     "source": "github"
-  },
-  "version_detail": {
-    "version": "1.0.0"
   },
   "remotes": [
     {
