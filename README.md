@@ -4,6 +4,8 @@ The official [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) se
 
 Connect any MCP-compatible AI client (Claude, Cursor, Windsurf, etc.) to your BasicOps workspace and manage your work using natural language.
 
+[![BasicOps MCP server](https://glama.ai/mcp/servers/BasicOps/mcp-server/badges/card.svg)](https://glama.ai/mcp/servers/BasicOps/mcp-server)
+
 ## Endpoints
 
 | Transport | URL |
