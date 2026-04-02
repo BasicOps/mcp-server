@@ -10,11 +10,47 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://app.basicops.com/mcp"
+      "url": "https://app.basicops.com/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {api_key}",
+          "description": "BasicOps API key. Required for clients that do not support OAuth 2.1 (e.g. Claude CLI).",
+          "isSecret": true,
+          "isRequired": false,
+          "placeholder": "bo_..."
+        }
+      ],
+      "variables": {
+        "api_key": {
+          "description": "Your BasicOps API key. Generate one in BasicOps Settings → API Keys.",
+          "isSecret": true,
+          "isRequired": false,
+          "placeholder": "bo_..."
+        }
+      }
     },
     {
       "type": "sse",
-      "url": "https://app.basicops.com/mcp/sse"
+      "url": "https://app.basicops.com/mcp/sse",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {api_key}",
+          "description": "BasicOps API key. Required for clients that do not support OAuth 2.1 (e.g. Claude CLI).",
+          "isSecret": true,
+          "isRequired": false,
+          "placeholder": "bo_..."
+        }
+      ],
+      "variables": {
+        "api_key": {
+          "description": "Your BasicOps API key. Generate one in BasicOps Settings → API Keys.",
+          "isSecret": true,
+          "isRequired": false,
+          "placeholder": "bo_..."
+        }
+      }
     }
   ]
 }

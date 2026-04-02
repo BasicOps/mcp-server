@@ -13,7 +13,20 @@ Connect any MCP-compatible AI client (Claude, Cursor, Windsurf, etc.) to your Ba
 
 ## Authentication
 
-The BasicOps MCP server uses **OAuth 2.1** for authentication. When you connect an MCP client to the server, you will be redirected through the OAuth 2.1 authorization flow to grant access to your BasicOps workspace. No manual token management is required.
+The BasicOps MCP server supports two authentication methods:
+
+### OAuth 2.1 (recommended)
+
+Most MCP clients (Claude Desktop, Cursor, Windsurf, etc.) support OAuth 2.1. When you connect, you will be redirected through the OAuth 2.1 authorization flow to grant access to your BasicOps workspace. No manual token management is required.
+
+### API Key
+
+For clients that do not support OAuth token refresh (such as Claude CLI / Claude Code), you can authenticate using a BasicOps API key instead.
+
+1. In BasicOps, go to **Settings → API Keys** and generate a new key. Copy the key — it is only shown once.
+2. Configure your MCP client to send the key as a `Bearer` token in the `Authorization` header (see client-specific instructions below).
+
+API keys do not expire by default but can be revoked at any time from Settings → API Keys.
 
 ## Features
 
@@ -42,9 +55,38 @@ https://app.basicops.com/mcp
 
 On first use, you will be prompted to sign in to BasicOps via the OAuth 2.1 authorization flow.
 
+#### Claude CLI / Claude Code
+
+Claude CLI does not support OAuth token refresh, so use an API key instead. Generate one in BasicOps Settings → API Keys, then run:
+
+```bash
+claude mcp add basicops \
+  --transport http \
+  https://app.basicops.com/mcp \
+  --header "Authorization: Bearer bo_YOUR_API_KEY"
+```
+
+Or add it manually to your `~/.claude.json`:
+
+```json
+{
+  "mcpServers": {
+    "basicops": {
+      "type": "http",
+      "url": "https://app.basicops.com/mcp",
+      "headers": {
+        "Authorization": "Bearer bo_YOUR_API_KEY"
+      }
+    }
+  }
+}
+```
+
 #### Other clients
 
 Use the Streamable HTTP endpoint `https://app.basicops.com/mcp`. For clients that only support SSE, use `https://app.basicops.com/mcp/sse` instead.
+
+Clients that support OAuth 2.1 will be redirected through the authorization flow automatically. Clients that do not support OAuth can pass an API key as `Authorization: Bearer bo_YOUR_API_KEY`.
 
 ## Resources
 
