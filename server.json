@@ -3,7 +3,7 @@
   "name": "io.github.BasicOps/basicops",
   "title": "BasicOps MCP Server",
   "version": "1.0.3",
-  "description": "Projects, tasks, messages and files in BasicOps, the workplace where humans and AI agents work as one team",
+  "description": "Projects, tasks, messages and files in BasicOps, where humans and AI agents work as one team",
   "repository": {
     "url": "https://github.com/BasicOps/mcp-server",
     "source": "github"
